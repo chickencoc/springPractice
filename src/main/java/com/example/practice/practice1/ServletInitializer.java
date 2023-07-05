@@ -1,5 +1,6 @@
-package com.example.practice;
+package com.example.practice.practice1;
 
+import com.example.practice.practice1.PracticeApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 
