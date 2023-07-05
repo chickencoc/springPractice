@@ -1,9 +1,6 @@
 package com.example.practice.practice1;
 
-import org.springframework.cglib.core.ClassGenerator;
 import org.springframework.web.bind.annotation.*;
-
-import javax.swing.*;
 
 @RestController
 public class MvcController1 {
