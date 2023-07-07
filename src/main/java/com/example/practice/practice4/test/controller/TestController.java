@@ -1,5 +1,6 @@
 package com.example.practice.practice4.test.controller;
 
+import com.example.practice.practice4.test.model.Member;
 import com.example.practice.practice4.test.service.TestService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,8 +14,13 @@ public class TestController {
     @Autowired
     TestService testService;
 
-    @GetMapping("/test")
+    @GetMapping("/test1")
     public List<String> getAllStringsVal() {
         return testService.getAllStringVal();
+    }
+
+    @GetMapping("/test2")
+    public List<Member> getAllMembers() {
+        return testService.getAllMembers();
     }
 }
