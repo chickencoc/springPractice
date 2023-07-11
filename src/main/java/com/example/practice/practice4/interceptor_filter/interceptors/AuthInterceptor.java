@@ -8,10 +8,12 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.resource.ResourceHttpRequestHandler;
 
 import java.lang.annotation.Annotation;
 
 @Component
+@SuppressWarnings("unchecked")
 public class AuthInterceptor implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
@@ -39,23 +41,24 @@ public class AuthInterceptor implements HandlerInterceptor {
 
         if (authUserHandlerMethod != null || annotation != null) {
             System.out.println("어노테이션 체크 class이름: " + clazz.getName());
+            // logic코드 예:전화번호 암호화
             return true;
         }
+
         return false;
     }
-
     @Override
     public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
         HandlerInterceptor.super.postHandle(request, response, handler, modelAndView);
 
+        // logic코드 예:전화번호 복호화
         System.out.println("AuthInterceptor postHandle 실행");
     }
     @Override
     public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {
         HandlerInterceptor.super.afterCompletion(request, response, handler, ex);
 
+        // logic코드 예: 전봐번호 암복호화 완료된 것만 다른 db에 남기기
         System.out.println("AuthInterceptor afterCompletion 실행");
     }
-
-
 }
