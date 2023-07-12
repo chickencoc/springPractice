@@ -2,6 +2,7 @@ package com.example.practice.practice5.jpa.repository;
 
 import com.example.practice.practice5.jpa.model.Guest;
 import com.example.practice.practice5.jpa.model.Member;
+import com.example.practice.practice5.jpa.model.enums.Nation;
 import org.assertj.core.util.Lists;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -43,7 +44,14 @@ class MemberRepositoryTest {
 
         // update문
         System.out.println("update문 --------------------------------------------------------");
-        Member member1 = new Member(1L, "홍길동", "이메일 주소", LocalDateTime.now(), LocalDateTime.now());
+//        Member member1 = new Member(1L, "홍길동", "hong@manhwa.com" , LocalDateTime.now(), LocalDateTime.now(), null);
+        Member member1 = Member.builder()
+                .id(1L)
+                .name("홍길동")
+                .email("hong@manhwa.com")
+                .createAt(LocalDateTime.now())
+                .updateAt(LocalDateTime.now().plusDays(1))
+                .build();
         memberRepository.save(member1);     // 1번을 가진 id가 있다면 update, 없으면 create문 발생
         List<Member> memberList3 = memberRepository.findAll();
         memberList3.forEach(System.out::println);
@@ -62,7 +70,7 @@ class MemberRepositoryTest {
     void crud2() {
         // insert문(name과 create_at컬럼이 null이 아닌 insert)
         Member member = Member.builder()
-                .id(8L)
+//                .id(8L)
                 .name("이명박")
                 .createAt(LocalDateTime.now())
                 .build();
@@ -71,13 +79,19 @@ class MemberRepositoryTest {
 //        // insert문(update_at컬럼이 null이 아닌 insert)
         Member member2 = Member.builder()
                 .updateAt(LocalDateTime.now())
-                .id(9L)
-                .name("abcdefg")
+//                .id(9L)
+                .name("update_at컬럼이 null이 아닌 insert")
                 .build();
         memberRepository.save(member2);
 
         // insert문(name: 박조은, email: parkjoeun@gmail.com, create_at: 현재시간)
-        Member member3 = new Member(15L, "박조은", "parkjoeun@gmail.com", LocalDateTime.now(), null);
+//        Member member3 = new Member(15L, "박조은", "parkjoeun@gmail.com", LocalDateTime.now(), null, null);
+        Member member3 = Member.builder()
+                .name("박조은")
+                .email("parkjoeun@gmail.com")
+                .createAt(LocalDateTime.now())
+                .updateAt(LocalDateTime.now().plusDays(1))
+                .build();
         memberRepository.save(member3);
 
         // select(by)
@@ -140,4 +154,34 @@ class MemberRepositoryTest {
     void crudSemiSqlMapper() {
 
     }
-}
+
+    @Test()
+    void jpaSchemaTest() throws InterruptedException {
+        Member member = Member.builder()
+                .name("이미라")
+                .male(false)
+                .email("imila@naver.com")
+                .createAt(LocalDateTime.now())
+                .updateAt(LocalDateTime.now())
+                .build();
+        member = memberRepository.saveAndFlush(member); // insert
+
+        Thread.sleep(1500) ;
+
+        member.setName("김홍순");
+        member.setUpdateAt(LocalDateTime.now());
+        memberRepository.saveAndFlush(member);          // update
+    }
+
+    @Test()
+    void jpaEnumTest() {
+        Member member = Member.builder()
+                .name("침착맨")
+                .male(false)
+                .email("chimchak@man.com")
+                .createAt(LocalDateTime.now())
+                .updateAt(LocalDateTime.now().plusDays(2))
+                .nation(Nation.ENGLAND)
+                .build();
+        memberRepository.save(member);
+    }
