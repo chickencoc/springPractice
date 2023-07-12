@@ -185,4 +185,3 @@ class MemberRepositoryTest {
                 .build();
         memberRepository.save(member);
     }
-}

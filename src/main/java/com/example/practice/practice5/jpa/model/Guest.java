@@ -1,6 +1,7 @@
 package com.example.practice.practice5.jpa.model;
 
 
+
 import jakarta.persistence.*;
 import lombok.*;
 
