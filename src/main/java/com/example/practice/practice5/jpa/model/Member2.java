@@ -1,10 +1,7 @@
 package com.example.practice.practice5.jpa.model;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDateTime;
@@ -15,6 +12,8 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @Data
 @ToString
+//@Table(name = "member", uniqueConstraints = {@UniqueConstraint(columnNames = {"email"})}, indexes = {@Index(columnList = "email"), @Index(columnList = "name")})
+@Table(name = "member2", uniqueConstraints = {@UniqueConstraint(columnNames = {"email"})})
 public class Member2 {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,4 +21,5 @@ public class Member2 {
     @NonNull
     private String name;
     private String email;
+    private String email2;
 }

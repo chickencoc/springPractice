@@ -8,6 +8,9 @@ application:
   title: thejoeun company
 
 spring:
+  sql:
+    init:
+      mode: always
   datasource:
 #    generate-unique-name: false
 #    url: jdbc:h2:tcp://localhost/~/jpashop
@@ -32,9 +35,6 @@ spring:
     console:
       path: /h2-console
       enabled: true
-  #  sql:
-  #    init:
-  #      mode: always
   jpa:
     show-sql: true
     defer-datasource-initialization: true # data.sql 사용을 위해서 필수적으로 등록
