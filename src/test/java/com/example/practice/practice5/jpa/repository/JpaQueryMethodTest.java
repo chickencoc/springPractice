@@ -8,8 +8,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 
-import java.awt.*;
-import java.awt.print.Pageable;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
@@ -30,7 +28,7 @@ public class JpaQueryMethodTest {
     @Test
     void jpaQueryMethodTest1() {
         // SELECT문: email값으로 특정 row데이터 가져오기
-        Set<Member> member1 = memberRepository.findByEmail("호영호@개미조.com");
+        Set<Member> member1 = memberRepository.readByEmail("호영호@개미조.com");
         System.out.println("⬜⬜" + member1);
 
         System.out.println("\n------------------<><><>--------------------");

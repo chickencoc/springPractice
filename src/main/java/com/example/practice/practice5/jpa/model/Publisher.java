@@ -1,23 +1,28 @@
 package com.example.practice.practice5.jpa.model;
 
-
 import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
+import java.util.List;
+
+@Getter
+@Setter
 @Builder
-@Entity
-@NoArgsConstructor(force = true)
-@AllArgsConstructor
-@Data
 @ToString
-@EntityListeners({MemberEntityListener.class})
-@EqualsAndHashCode(callSuper=true)
-public class Member3 extends BaseEntity {
+@Entity
+@EqualsAndHashCode(callSuper = true)
+@EntityListeners(value = {AuditingEntityListener.class})
+@Table(name = "publisher ")
+public class Publisher extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @NonNull
+
     private String name;
-    private String email;
+
+    @OneToMany
+    @JoinColumn(name = "publisher_id")
+    private List<Book> books;
+
 }

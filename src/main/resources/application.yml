@@ -59,14 +59,14 @@ spring:
     livereload:
       enabled: true
 
-logging:
-  level:
-    org:
-      hibernate:
-        orm:
-          jdbc:
-            bind: trace
-        SQL: debug
+#logging:
+#  level:
+#    org:
+#      hibernate:
+#        orm:
+#          jdbc:
+#            bind: trace
+#        SQL: debug
 #    root: trace
 
 
