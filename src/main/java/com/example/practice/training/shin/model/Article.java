@@ -5,6 +5,10 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
+
+import java.time.LocalDateTime;
 
 @Entity
 @Builder
@@ -25,6 +29,10 @@ public class Article {
     @Column(name = "content", nullable = false)
     private String content;
 
+    private LocalDateTime createAt;
+
+    private LocalDateTime updateAt;
+
     @Builder
     public Article(String title, String content) {
         this.title = title;
@@ -35,4 +43,12 @@ public class Article {
         this.title = title;
         this.content = content;
     }
+
+    @CreatedDate
+    @Column(name = "created_at")
+    private LocalDateTime createdAt;
+
+    @LastModifiedDate
+    @Column(name = "updated_at")
+    private LocalDateTime updatedAt;
 }

@@ -1,13 +1,19 @@
 # JPA와 HIBERNATE - https://annajin.tistory.com/192
 # DDL, DML, DCL - https://velog.io/@ksk5401/DDL-DML-DCL-%EC%9D%B4%EB%9E%80
 server:
-  port: 8070
+  port: 8080
 
 application:
   version: AppVersion 1.0.0
   title: thejoeun company
 
 spring:
+  security:
+    user:
+      name: user
+      password: 1234
+  thymeleaf:
+    cache: false
   sql:
     init:
       mode: always

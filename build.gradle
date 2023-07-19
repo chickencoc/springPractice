@@ -32,6 +32,14 @@ dependencies {
 	implementation 'org.postgresql:postgresql'
 	runtimeOnly 'com.mysql:mysql-connector-j:8.0.33'
 
+	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+
+	implementation 'org.springframework.boot:spring-boot-starter-security'
+	implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity6'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+//	testImplementation group: 'org.assertj', name: 'assertj-core'
+	testImplementation 'org.springframework.security:spring-security-test'
+
 	implementation("com.github.gavlyukovskiy:p6spy-spring-boot-starter:1.9.0")
 
 	compileOnly group: 'org.projectlombok', name: 'lombok', version: '1.18.28'
