@@ -1,6 +1,5 @@
 package com.example.practice.training.shin.config;
 
-import com.example.practice.training.shin.service.UserDetailService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -10,8 +9,6 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
-
-import static org.springframework.security.config.Customizer.withDefaults;
 
 @RequiredArgsConstructor
 @Configuration
@@ -30,6 +27,7 @@ public class WebSecurityConfig {
 //                .requestMatchers(toH2Console())
                 .requestMatchers("/static/**")
                 .requestMatchers("/images/**")
+                .requestMatchers("/api/**")
 //                .requestMatchers("/**")
                 ;
     }
@@ -61,7 +59,7 @@ public class WebSecurityConfig {
                 .formLogin((formLogin) -> {
                     formLogin.loginPage("/login") // 사용자 정의 login페이지 사용
 //                            .failureForwardUrl("/error.html")
-                            .defaultSuccessUrl("/articles", true);
+                            .defaultSuccessUrl("/", true);
 //                    formLogin.failureUrl("/error.html");
 
                 })
