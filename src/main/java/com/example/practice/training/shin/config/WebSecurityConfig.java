@@ -1,3 +1,4 @@
+/*
 package com.example.practice.training.shin.config;
 
 import lombok.RequiredArgsConstructor;
@@ -16,11 +17,13 @@ import org.springframework.security.web.SecurityFilterChain;
 public class WebSecurityConfig {
     private final UserDetailsService userDetailsService;
 
-    /**
+    */
+/**
      * 웹 보안 설정 control
      *   (1) 스프링 시큐리티 비활성화(static폴더 아래에 있는 모든 것들)
      * @return WebSecurityCustomizer
-     */
+     *//*
+
     @Bean
     public WebSecurityCustomizer configure() {
         return (web) -> web.ignoring()
@@ -94,3 +97,4 @@ public class WebSecurityConfig {
         return new BCryptPasswordEncoder();
     }
 }
+*/

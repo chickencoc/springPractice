@@ -9,6 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.security.Principal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,8 +24,8 @@ public class ArticleApiController {
      * @return
      */
     @PostMapping("/api/articles")
-    public ResponseEntity<Article> addArticle(@RequestBody AddArticleRequest request) {
-        Article savedArticle = articleService.save(request);   // 글 저장
+    public ResponseEntity<Article> addArticle(@RequestBody AddArticleRequest request, Principal principal) {
+        Article savedArticle = articleService.save(request, principal.getName());   // 글 저장
 
         return ResponseEntity.status(HttpStatus.CREATED)
                 .body(savedArticle);

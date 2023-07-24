@@ -21,6 +21,6 @@
 --INSERT INTO book(`id`, `name`, `publisher_id`) VALUES (3, 'How to get new member', 2);
 --INSERT INTO book(`id`, `name`, `publisher_id`) VALUES (4, 'What a good day!', 1);
 
-INSERT INTO article(`id`, `title`, `content`, `create_at`, `update_at`) VALUES (1, 'Hard Spring Boot', "The href attribute is required for an anchor to be keyboard accessible. Provide a valid, navigable address as the href value.", now(), now());
-INSERT INTO article(`id`, `title`, `content`, `create_at`, `update_at`) VALUES (2, 'How to get new member', "If you cannot provide an href, but still need the element to resemble a link, use a button and change it with appropriate styles.", now(), now());
-INSERT INTO article(`id`, `title`, `content`, `create_at`, `update_at`) VALUES (3, 'What a good day!', "Line 16:21:  Headings must have content and the content must be accessible by a screen reader.", now(), now());
+INSERT INTO article(`id`, `title`, `content`, `created_at`, `updated_at`, `author`) VALUES (1, 'Hard Spring Boot', "The href attribute is required for an anchor to be keyboard accessible. Provide a valid, navigable address as the href value.", now(), now(), "admin");
+INSERT INTO article(`id`, `title`, `content`, `created_at`, `updated_at`, `author`) VALUES (2, 'How to get new member', "If you cannot provide an href, but still need the element to resemble a link, use a button and change it with appropriate styles.", now(), now(), "admin");
+INSERT INTO article(`id`, `title`, `content`, `created_at`, `updated_at`, `author`) VALUES (3, 'What a good day!', "Line 16:21:  Headings must have content and the content must be accessible by a screen reader.", now(), now(), "admin");

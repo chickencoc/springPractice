@@ -13,7 +13,7 @@ if (createBtn) {
             })
         }).then(data => {
             alert('등록 완료되었습니다.');
-            location.replace('/');     // articles로 화면으로 이동
+            location.replace('/articles');     // articles로 화면으로 이동
         })
     })
 }

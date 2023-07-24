@@ -19,8 +19,9 @@
     <br>
     <div class="row-6" th:each="article : ${articles}">
         <div class="card" style="">
-            <div class="card-header" th:text="${article.id}">
-
+            <div class="card-header">
+                <span style="font-size: 0.725rem; color: #999;">Posted by </span>
+                <span th:text="${article.author}"></span>
             </div>
             <div class="card-body">
                 <h5 class="card-title" th:text="${article.title}"></h5>
@@ -31,5 +32,6 @@
         <br>
     </div>
 </div>
+<script src="/js/token.js"></script>
 </body>
 </html>

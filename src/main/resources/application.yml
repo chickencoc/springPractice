@@ -9,6 +9,16 @@ application:
 
 spring:
   security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: 762956005956-t6pvapdm1mi3134ilqeabioul71o1ish.apps.googleusercontent.com
+            client-secret: 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
+            redirect-url: http://localhost:8080/login/oauth2/code/google
+            scope:
+              - email
+              - profile
     user:
       name: user
       password: 1234

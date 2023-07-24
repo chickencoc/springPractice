@@ -18,7 +18,7 @@ public class ArticleViewController {
 
     private final ArticleService articleService;
 
-    @GetMapping("/") // 메인
+    @GetMapping("/articles") // 메인
     public String getArticles(Model model) {
 
         List<ArticleListViewResponse> articleResponseList = articleService.getArticleAll().stream()
